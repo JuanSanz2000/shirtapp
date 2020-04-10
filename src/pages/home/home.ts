@@ -22,10 +22,10 @@ export class HomePage {
     constructor(
 		public api:API,
 		public navCtrl: NavController) {
-		this.dameArticulos();
+		this.dameOfertas();
     }
 
-	public dameArticulos() {
+	public dameOfertas() {
 		this.api.getArticulos().then(
 			(response) => {
 				if (response) {
