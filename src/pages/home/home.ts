@@ -1,6 +1,10 @@
+// components
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular';
+
+// providers
+import { API } from '../../providers/api';
 
 @IonicPage({
   name: 'home'
@@ -13,11 +17,21 @@ import { IonicPage } from 'ionic-angular';
 
 export class HomePage {
 
-	miVariable = "hola chato";
-	mostrar : boolean = true;
+	Articulos :any = [];
 
-    constructor(public navCtrl: NavController) {
-
+    constructor(
+		public api:API,
+		public navCtrl: NavController) {
+		this.dameArticulos();
     }
 
+	public dameArticulos() {
+		this.api.getArticulos().then(
+			(response) => {
+				if (response) {
+					this.Articulos = response;
+				}
+			}
+		);
+	}
 }
