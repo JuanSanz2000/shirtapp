@@ -7,31 +7,31 @@ import { IonicPage } from 'ionic-angular';
 import { API } from '../../providers/api';
 
 @IonicPage({
-  name: 'home'
+name: 'home'
 })
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+selector: 'page-home',
+templateUrl: 'home.html'
 })
 
 export class HomePage {
 
-	Articulos :any = [];
+Articulos :any = [];
 
-    constructor(
-		public api:API,
-		public navCtrl: NavController) {
-		this.dameOfertas();
-    }
+constructor(
+	public api:API,
+	public navCtrl: NavController) {
+	this.dameOfertas();
+}
 
-	public dameOfertas() {
-		this.api.getArticulos().then(
-			(response) => {
-				if (response) {
-					this.Articulos = response;
-				}
+public dameOfertas() {
+	this.api.getOfertas().then(
+		(response) => {
+			if (response) {
+				this.Articulos = response;
 			}
-		);
-	}
+		}
+	);
+}
 }

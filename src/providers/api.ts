@@ -22,6 +22,16 @@ export class API {
         return this.noTokenRequest(url);
     }
 
+    public getOfertas() {
+        let url = this.ApiURL + "ofertas";
+        return this.noTokenRequest(url);
+    }
+    
+    public getArticulosBusqueda(strBusqueda) {
+        let url = this.ApiURL + "busqueda/"  + strBusqueda;
+        return this.noTokenRequest(url);
+    }
+
     noTokenRequest(path: string): Promise<any> {
             return this.http.get(path, { headers: this.headers })
                 .toPromise()

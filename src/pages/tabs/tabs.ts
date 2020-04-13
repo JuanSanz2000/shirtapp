@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
 export class TabsPage {
 
   tab1Root = 'home';
-  
+  tab2Root = 'buscar';
+  tab3Root = 'carrito';
+  tab4Root = 'pedidos';
 
   constructor() {
 
