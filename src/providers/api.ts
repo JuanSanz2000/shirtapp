@@ -32,6 +32,16 @@ export class API {
         return this.noTokenRequest(url);
     }
 
+    public getPedidos() {
+        let url = this.ApiURL + "linea_pedidos";
+        return this.noTokenRequest(url);
+    }
+
+    public getPedidosRealizados() {
+        let url = this.ApiURL + "total";
+        return this.noTokenRequest(url);
+    }
+
     noTokenRequest(path: string): Promise<any> {
             return this.http.get(path, { headers: this.headers })
                 .toPromise()
