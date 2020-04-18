@@ -33,13 +33,19 @@ export class API {
     }
 
     public getPedidos() {
-        let url = this.ApiURL + "linea_pedidos";
+        let url = this.ApiURL + "pedidos";
         return this.noTokenRequest(url);
     }
 
     public getPedidosRealizados() {
         let url = this.ApiURL + "total";
         return this.noTokenRequest(url);
+    }
+
+    public login(email, password) {
+        let datos = { 'email': email, 'passsword': password};
+        let url = this.ApiURL + "login";
+        return this.noTokenRequestPost(datos, url);
     }
 
     noTokenRequest(path: string): Promise<any> {
@@ -77,6 +83,28 @@ export class API {
         
     }
  
+    /*
+    tokenRequestPost(path: string, body: any): Promise<any> {
+            return this.localStorage.getToken().then(token => {
+            
+                if (token) {
+                let headersAuth = new HttpHeaders({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                    });
 
-   
+                return this.http.post(path, body, {headers: headersAuth})
+                    .toPromise()
+                    .then(response => {
+                    return response;
+                    })
+                    .catch(error => {
+                        if(error.status=='401') this.goToLogin();
+                    });
+                }else{
+                    this.goToLogin();
+                }
+            
+        }
+        */
 }

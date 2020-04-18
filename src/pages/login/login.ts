@@ -8,17 +8,29 @@ import { API } from '../../providers/api';
 
 
 @IonicPage({
-  name: 'login'
+  	name: 'login'
 })
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  	selector: 'page-login',
+  	templateUrl: 'login.html',
 })
 
 export class LoginPage {
-  constructor(
-    public api:API,
-    public navCtrl: NavController) {
-  }
+
+	clienteEmail:string = null;
+	clientePassword:string = null;
+
+  	constructor(public api:API, public navCtrl: NavController) {
+		this.loginCliente();
+    }
+
+	loginCliente() {
+		this.api.login(this.clienteEmail, this.clientePassword).then(
+			(response) => {
+				console.log(response);
+			}
+		);
+	}
+
 }

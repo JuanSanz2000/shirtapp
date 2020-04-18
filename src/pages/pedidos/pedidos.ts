@@ -17,6 +17,7 @@ import { API } from '../../providers/api';
 })
 
 export class PedidosPage {
+
   Pedidos :any = [];
 
   constructor(

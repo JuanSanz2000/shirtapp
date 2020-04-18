@@ -5,13 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let lineas_pedido of Lineas_Pedido">
+  <ion-card *ngFor="let pedidos of Pedido">
 		<ion-card-content>
 			<ion-card-title>
-        <p>{{lineas_pedido.articulo_id}}</p>
-			</ion-card-title>
-      <p>{{lineas_pedido.total}}</p>
-      <p>{{lineas_pedido.cantidad}}</p>
+        <p>Pedido Realizado</p>
+      </ion-card-title>
+      <p>{{pedidos.cliente_id}}</p>
+      <p>{{pedidos.total}}</p>
+      <p>{{pedidos.fecha}}</p>
 		</ion-card-content>
 	</ion-card>
 </ion-content>
