@@ -2,6 +2,7 @@ import { IonicPage } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 @IonicPage( {
+  name: 'tabs'
 })
 
 @Component({

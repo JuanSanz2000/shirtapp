@@ -23,11 +23,11 @@ export class PedidosPage {
   constructor(
     public api:API,
     public navCtrl: NavController) {
-    this.damePedidosRealizados();
+    this.damePedidos();
   }
 
-  public damePedidosRealizados() {
-    this.api.getPedidosRealizados().then(
+  public damePedidos() {
+    this.api.getPedidos().then(
       (response) => {
         if (response) {
           this.Pedidos = response;

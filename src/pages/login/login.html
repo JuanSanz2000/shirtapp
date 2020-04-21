@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-input type="text" name="Email" [(ngModel)]="clienteEmail"></ion-input>
-	<ion-input type="text" name="Password"  [(ngModel)]="clientePassword"></ion-input>
+	<ion-input type="text" name="Email" aria-placeholder="Introduce tu Email" [(ngModel)]="clienteEmail"></ion-input>
+	<ion-input type="text" name="Password" aria-placeholder="Introduce tu Password" [(ngModel)]="clientePassword"></ion-input>
 	<button ion-button (click)="loginCliente()">Login</button>
 </ion-content>

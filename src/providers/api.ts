@@ -1,8 +1,10 @@
 import { Injectable }               from '@angular/core';
 import { HttpClient, HttpHeaders}   from "@angular/common/http";
-import {Platform} from "ionic-angular";
+import {Platform, App} from "ionic-angular";
 import 'rxjs/add/operator/toPromise';
  
+import {LocalStorageService} from './localStorage.service';
+
 @Injectable()
 export class API {  
    
@@ -12,6 +14,8 @@ export class API {
     headersRaw = new HttpHeaders({'Content-Type': 'text/plain'})
    
     constructor(public http:HttpClient,
+                private app:App,
+                public localStorage: LocalStorageService,
                 public platform: Platform
                 ) {                  
  
@@ -24,7 +28,7 @@ export class API {
 
     public getOfertas() {
         let url = this.ApiURL + "ofertas";
-        return this.noTokenRequest(url);
+        return this.tokenRequest(url);
     }
     
     public getArticulosBusqueda(strBusqueda) {
@@ -34,16 +38,11 @@ export class API {
 
     public getPedidos() {
         let url = this.ApiURL + "pedidos";
-        return this.noTokenRequest(url);
-    }
-
-    public getPedidosRealizados() {
-        let url = this.ApiURL + "total";
-        return this.noTokenRequest(url);
+        return this.tokenRequest(url);
     }
 
     public login(email, password) {
-        let datos = { 'email': email, 'passsword': password};
+        let datos = { 'email': email, 'password': password};
         let url = this.ApiURL + "login";
         return this.noTokenRequestPost(datos, url);
     }
@@ -83,17 +82,40 @@ export class API {
         
     }
  
-    /*
     tokenRequestPost(path: string, body: any): Promise<any> {
             return this.localStorage.getToken().then(token => {
             
                 if (token) {
+                    let headersAuth = new HttpHeaders({
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                        });
+
+                    return this.http.post(path, body, {headers: headersAuth})
+                        .toPromise()
+                        .then(response => {
+                        return response;
+                        })
+                        .catch(error => {
+                            if(error.status=='401') this.goToLogin();
+                        });
+                } else {
+                    this.goToLogin();
+                }
+            
+        });
+    }
+
+    tokenRequest(path: string): Promise<any> {
+        return this.localStorage.getToken().then(token => {
+        
+            if (token) {
                 let headersAuth = new HttpHeaders({
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + token
                     });
 
-                return this.http.post(path, body, {headers: headersAuth})
+                return this.http.get(path, {headers: headersAuth})
                     .toPromise()
                     .then(response => {
                     return response;
@@ -101,10 +123,14 @@ export class API {
                     .catch(error => {
                         if(error.status=='401') this.goToLogin();
                     });
-                }else{
-                    this.goToLogin();
-                }
-            
-        }
-        */
+            } else {
+                this.goToLogin();
+            }
+        
+    });
+}
+        
+    goToLogin() {
+        this.app.getRootNavs()[0].setRoot('login');
+    }
 }
