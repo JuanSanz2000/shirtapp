@@ -23,7 +23,7 @@ export class API {
    
     public getArticulos() {
         let url = this.ApiURL + "articulos";
-        return this.noTokenRequest(url);
+        return this.tokenRequest(url);
     }
 
     public getOfertas() {
@@ -33,7 +33,7 @@ export class API {
     
     public getArticulosBusqueda(strBusqueda) {
         let url = this.ApiURL + "busqueda/"  + strBusqueda;
-        return this.noTokenRequest(url);
+        return this.tokenRequest(url);
     }
 
     public getPedidos() {
