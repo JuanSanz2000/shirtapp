@@ -31,6 +31,11 @@ export class API {
         return this.tokenRequest(url);
     }
     
+    public getDetalles(idArticulo) {
+        let url = this.ApiURL + "articulo/" + idArticulo;
+        return this.tokenRequest(url);
+    }
+
     public getArticulosBusqueda(strBusqueda) {
         let url = this.ApiURL + "busqueda/"  + strBusqueda;
         return this.tokenRequest(url);

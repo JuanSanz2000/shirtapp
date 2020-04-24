@@ -34,4 +34,15 @@ public dameOfertas() {
 		}
 	);
 }
+/*
+public dameDetalles() {
+	this.api.getDetalles().then(
+		(response) => {
+			if (response) {
+				this.Articulos = response;
+			}
+		}
+	);
+}
+*/
 }
