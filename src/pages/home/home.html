@@ -6,7 +6,10 @@
 
 <ion-content padding>
 	<ion-card *ngFor="let articulo of Articulos">
-		<div class="CamisetaThumb"><img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" ></div>
+		
+		<div class="CamisetaThumb" (click)="dameDetalles(articulo.id)">
+			<img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" >
+		</div>
 		<ion-card-content>
 			<ion-card-title>
 				{{articulo.nombre}}

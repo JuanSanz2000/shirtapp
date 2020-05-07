@@ -21,7 +21,7 @@ import { API } from '../providers/api';
   imports: [
     BrowserModule,
     HttpModule, HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { backButtonText: ''}),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

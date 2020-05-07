@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalles</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card *ngIf="detallesArticulo">
+		<div class="CamisetaThumb">
+			<img [src]="'./assets/camisetas/' + detallesArticulo.id + '.jpg'" >
+		</div>
+		<ion-card-content>
+			<ion-card-title>
+				{{detallesArticulo.nombre}}
+			</ion-card-title>
+			<p>{{detallesArticulo.descripcion}}</p>
+			<button ion-button full small><ion-icon name="cart" item-start>&nbsp;&nbsp;&nbsp;</ion-icon>{{detallesArticulo.precio}} €</button>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

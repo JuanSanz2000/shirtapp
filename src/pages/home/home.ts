@@ -34,15 +34,13 @@ public dameOfertas() {
 		}
 	);
 }
-/*
-public dameDetalles() {
-	this.api.getDetalles().then(
-		(response) => {
-			if (response) {
-				this.Articulos = response;
-			}
-		}
-	);
+
+public dameDetalles(id) {
+	this.navCtrl.push("detallesArticulo", { idArticulo: id });
 }
-*/
+
+public insertarCarrito() {
+	
+}
+
 }

@@ -31,13 +31,18 @@ export class API {
         return this.tokenRequest(url);
     }
     
-    public getDetalles(idArticulo) {
+    public getDetallesArticulo(idArticulo) {
         let url = this.ApiURL + "articulo/" + idArticulo;
         return this.tokenRequest(url);
     }
 
     public getArticulosBusqueda(strBusqueda) {
         let url = this.ApiURL + "busqueda/"  + strBusqueda;
+        return this.tokenRequest(url);
+    }
+
+    public getCarrito() {
+        let url = this.ApiURL + "carrito";
         return this.tokenRequest(url);
     }
 
