@@ -1,12 +1,19 @@
 page-home {
-
-    .CamisetaThumb {
-        height: 100px;
-        overflow: hidden;
+    h2 {
+        font-size: 15px !important;
+        font-weight: bold !important;
     }
 
-    ion-card-title {
-        font-size: 17px !important;
-        font-weight: bold !important;
+    ion-note {
+        font-size: 12px !important;
+        white-space: nowrap !important;
+    }
+
+    .ion-item, button {
+        margin:0 !important;   
+    }
+
+    ion-list {
+        padding: 0 !important;
     }
 }

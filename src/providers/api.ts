@@ -46,6 +46,32 @@ export class API {
         return this.tokenRequest(url);
     }
 
+    public borraLineaCarrito(lineaId) {
+        let url = this.ApiURL + "carrito/linea/" + lineaId;
+        return this.tokenDelete(url);
+    }
+
+    public insertarLineaPedido(datosLinea) {
+        let url = this.ApiURL + "carrito/linea";
+        return this.tokenRequestPost(url, datosLinea);
+    } 
+
+    public addCarrito(datosArticulo) {
+        let datosEnviar = { 'idArticulo': datosArticulo.id, 'talla': datosArticulo.talla, 'color': datosArticulo.color};
+        let url = this.ApiURL + "carrito";
+        return this.tokenRequestPost(url, datosEnviar);
+    }
+
+    public confirmarPedido(pedidoId){
+        let url = this.ApiURL + "carrito/confirma/" + pedidoId;
+        return this.tokenRequest(url);
+    }
+
+    public creameCarro() {
+        let url = this.ApiURL + "carrito/nuevo";
+        return this.tokenRequest(url);
+    }
+
     public getPedidos() {
         let url = this.ApiURL + "pedidos";
         return this.tokenRequest(url);
@@ -79,6 +105,27 @@ export class API {
                 });
     }
  
+    tokenDelete(path: string): Promise<any> {
+        return this.localStorage.getToken().then(token=>{
+            if (token) {
+                let headersAuth = new HttpHeaders({'Accept': 'application/json','Authorization': 'Bearer ' + token});
+                return this.http.delete(path, { headers: headersAuth })
+                .toPromise()
+                .then(response => {        
+                    return response;
+                })
+                .catch(error => {
+                    if (error.status=="401") {
+                        this.goToLogin();
+                    } else {
+                        return Promise.reject({Error: "noconn"});
+                    }
+                });
+            } else {
+                this.goToLogin();
+            }
+        });
+    }
  
     noTokenDelete(path: string): Promise<any> {
             return this.http.delete(path)

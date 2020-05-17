@@ -1,15 +1,31 @@
-<!--
-  Generated template for the CarritoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Carrito</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title>Carrito</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+	<div padding *ngIf="!carrito.lineas || !carrito.lineas.length>0">
+		Su carrito de la compra está vacío.
+	</div>
+	<ion-list *ngIf="carrito.lineas && carrito.lineas.length>0">
+		<ion-item *ngFor="let linea of carrito.lineas">
+			<ion-avatar item-start>
+				<img [src]="'./assets/camisetas/' + linea.articulo_id + '.jpg'" >
+			</ion-avatar>
+			
+			<strong>{{linea.nombre}}</strong><br>
+			Talla <strong>{{linea.talla}}</strong> | Color <strong>{{linea.color}}</strong><br>
+			{{linea.cantidad}}ud. * {{linea.precio}}€ = {{linea.total}} €
+			<button ion-button large clear icononly item-end (click)="borraLineaCarrito(linea)"><ion-icon name="trash" class="Basura"></ion-icon></button>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="cart" item-start></ion-icon>
+			<h2>Total {{totalCarrito.toFixed(2)}} €</h2>
+		</ion-item>
+		<div padding text-center>
+			<button ion-button (click)="confirmarPedido()">Confirmar pedido</button>
+		</div>
+	</ion-list>
+	
 </ion-content>

@@ -13,8 +13,26 @@
 			<ion-card-title>
 				{{detallesArticulo.nombre}}
 			</ion-card-title>
+			<ion-row>
+				<ion-col col-8><ion-label>Seleccione cantidad</ion-label></ion-col>
+				<ion-col><ion-input type="number" [(ngModel)]="cantidadElegida"></ion-input></ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-8><ion-label>Selecciona talla</ion-label></ion-col>
+				<ion-col><ion-select [(ngModel)]="tallaElegida">
+					<ion-option value="{{talla}}" *ngFor="let talla of tallas">{{talla}}</ion-option>
+				</ion-select></ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-8><ion-label>Selecciona color</ion-label></ion-col>
+				<ion-col><ion-select [(ngModel)]="colorElegido">
+					<ion-option value="{{color}}" *ngFor="let color of colores">{{color}}</ion-option>
+				</ion-select></ion-col>
+			</ion-row>
+			
+			
+			<button ion-button full small (click)="addCart()"><ion-icon name="cart" item-start>&nbsp;&nbsp;&nbsp;</ion-icon>{{detallesArticulo.precio}} €</button>
 			<p>{{detallesArticulo.descripcion}}</p>
-			<button ion-button full small><ion-icon name="cart" item-start>&nbsp;&nbsp;&nbsp;</ion-icon>{{detallesArticulo.precio}} €</button>
 		</ion-card-content>
 	</ion-card>
 </ion-content>
