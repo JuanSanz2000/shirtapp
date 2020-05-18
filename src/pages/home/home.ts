@@ -39,8 +39,4 @@ public dameDetalles(id) {
 	this.navCtrl.push("detallesArticulo", { idArticulo: id });
 }
 
-public insertarCarrito() {
-	
-}
-
 }
