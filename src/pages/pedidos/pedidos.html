@@ -6,9 +6,9 @@
 
 <ion-content padding>
 	<ion-list>
-		<ion-item *ngFor="let pedido of Pedidos">
+		<button ion-item (click)="dameDetallesPedido(pedido.id)" *ngFor="let pedido of Pedidos">
 			<strong>Pedido #{{pedido.id}}</strong> {{pedido.fecha}}<br>
 			{{pedido.total}}€
-		</ion-item>
+		</button>
 	</ion-list> 
 </ion-content>

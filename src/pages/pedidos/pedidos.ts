@@ -35,4 +35,8 @@ export class PedidosPage {
       }
     );
   }
+
+  public dameDetallesPedido(id) {
+	this.navCtrl.push("detallesPedido", { idPedido: id });
+  }
 }

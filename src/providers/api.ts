@@ -8,7 +8,7 @@ import {LocalStorageService} from './localStorage.service';
 @Injectable()
 export class API {  
    
-    ApiURL : string = "http://localhost:8000/api/";
+    ApiURL : string = "http://api.shirtapp.com:8000/api/";
     
     headers = new HttpHeaders({'Content-Type': 'application/json'});
     headersRaw = new HttpHeaders({'Content-Type': 'text/plain'})
@@ -74,6 +74,11 @@ export class API {
 
     public getPedidos() {
         let url = this.ApiURL + "pedidos";
+        return this.tokenRequest(url);
+    }
+
+    public getDetallesPedido(idPedido) {
+        let url = this.ApiURL + "pedidos/datos/" + idPedido;
         return this.tokenRequest(url);
     }
 

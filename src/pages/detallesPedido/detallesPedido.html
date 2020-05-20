@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalles</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item *ngFor="let linea of lineasPedido">
+			<ion-avatar item-start>
+				<img [src]="'./assets/camisetas/' + linea.articulo_id + '.jpg'" >
+			</ion-avatar>
+			{{linea.NombreArticulo}}<br>
+			{{linea.cantidad}}ud. * {{linea.precio}}€ = {{linea.total}} €<br>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="cart" item-start></ion-icon>
+			<h2>Total {{PrecioFinal.toFixed(2)}} €</h2>
+		</ion-item>
+	</ion-list>
+</ion-content>

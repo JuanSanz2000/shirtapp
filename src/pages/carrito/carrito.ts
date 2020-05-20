@@ -23,8 +23,6 @@ export class CarritoPage {
 	constructor(
 		public api:API,
 		public navCtrl: NavController) {
-
-			
 	}
 
 	ionViewDidEnter() {
