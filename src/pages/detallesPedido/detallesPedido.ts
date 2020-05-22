@@ -19,7 +19,7 @@ export class DetallesPedidoPage {
 
 lineasPedido :any = [];
 idPedido : number = null;
-PrecioFinal : number = 0;
+PrecioFinal :number = 0;
 
 constructor(
 	public api:API,
@@ -50,5 +50,6 @@ calculaTotal() {
 		this.PrecioFinal += subtotal;
 	});
 
-  }
+}
+
 }

@@ -28,7 +28,7 @@ export class BuscarPage {
 	public articulosBusqueda(ev) {
 		const val = ev.target.value;
 		
-		if (val && val.length>3) {
+		if (val && val.length>2) {
 			this.api.getArticulosBusqueda(val).then(
 				(response) => {
 					if (response) {
@@ -38,5 +38,9 @@ export class BuscarPage {
 			);
 		}
 			
+	}
+
+	public dameDetalles(id) {
+		this.navCtrl.push("detallesArticulo", { idArticulo: id });
 	}
 }

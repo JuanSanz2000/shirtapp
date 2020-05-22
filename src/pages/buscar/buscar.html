@@ -8,13 +8,19 @@
 
 <ion-content padding>
 	<ion-card *ngFor="let articulo of Articulos">
-		<div class="CamisetaThumb"><img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" ></div>
-		<ion-card-content>
-			<ion-card-title>
-				{{articulo.nombre}}
-			</ion-card-title>
-			<p>{{articulo.descripcion.substr(0,50) + '..'}}</p>
-			<button ion-button full small><ion-icon name="cart" item-start>&nbsp;&nbsp;&nbsp;</ion-icon>{{articulo.precio}} €</button>
-		</ion-card-content>
+		<ion-item>
+			<ion-avatar item-start>
+				<img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" >
+			</ion-avatar>
+			<h4 style="font-weight: bold">{{articulo.nombre}}</h4>
+		</ion-item>
+		<button (click)="dameDetalles(articulo.id)">
+			<ion-card-content>
+				<p>{{articulo.descripcion.substr(0,45) + '..'}}</p>
+			</ion-card-content>
+		</button>
+		<ion-item style="text-align: right">
+			<h4 style="font-weight: bold">{{articulo.precio}} €</h4>
+		</ion-item>
 	</ion-card>
 </ion-content>

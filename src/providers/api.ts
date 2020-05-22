@@ -8,7 +8,7 @@ import {LocalStorageService} from './localStorage.service';
 @Injectable()
 export class API {  
    
-    ApiURL : string = "http://api.shirtapp.com:8000/api/";
+    ApiURL : string = "http://192.168.1.219:8000/api/";
     
     headers = new HttpHeaders({'Content-Type': 'application/json'});
     headersRaw = new HttpHeaders({'Content-Type': 'text/plain'})

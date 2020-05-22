@@ -8,7 +8,7 @@
 	<ion-list>
 		<button ion-item (click)="dameDetallesPedido(pedido.id)" *ngFor="let pedido of Pedidos">
 			<strong>Pedido #{{pedido.id}}</strong> {{pedido.fecha}}<br>
-			{{pedido.total}}€
+			<p style="font-size: 12px; font-weight: bold;">El total de su pedido es: {{pedido.total}}€</p>
 		</button>
 	</ion-list> 
 </ion-content>

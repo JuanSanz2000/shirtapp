@@ -10,8 +10,10 @@
 			<ion-avatar item-start>
 				<img [src]="'./assets/camisetas/' + linea.articulo_id + '.jpg'" >
 			</ion-avatar>
-			{{linea.NombreArticulo}}<br>
-			{{linea.cantidad}}ud. * {{linea.precio}}€ = {{linea.total}} €<br>
+
+			<strong>{{linea.NombreArticulo}}</strong><br>
+			Talla <strong>{{linea.talla}}</strong> | Color <strong>{{linea.color}}</strong><br>
+			{{linea.cantidad}}ud. * {{linea.precio}}€ = {{linea.total}} €
 		</ion-item>
 		<ion-item>
 			<ion-icon name="cart" item-start></ion-icon>
