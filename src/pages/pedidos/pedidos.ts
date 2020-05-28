@@ -23,9 +23,13 @@ export class PedidosPage {
   constructor(
     public api:API,
     public navCtrl: NavController) {
-    this.damePedidos();
+    
   }
 
+  ionViewDidEnter() {
+    this.damePedidos();
+  }
+  
   public damePedidos() {
     this.api.getPedidos().then(
       (response) => {

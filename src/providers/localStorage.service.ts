@@ -9,6 +9,6 @@ export class LocalStorageService {
   
     getToken() { return this.storage.get('token'); }
     setToken(token: string) { return this.storage.set('token', token);}
-        
+    clearToken() { return this.storage.remove('token');}    
     
 }

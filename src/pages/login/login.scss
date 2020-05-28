@@ -1,3 +1,56 @@
 page-login {
+    
+        ion-content, ion-item {
+            background-color:#000000 !important;
+            color: #ffffff !important;
+        }
+    
+    
+        ion-item {
+            margin-bottom: 16px !important;
+            padding:0 !important;
+        }
+    
+        ion-label {
+            font-size: 16px !important;
+            color: white !important;
+            font-weight: bolder !important;
+        }
+    
+    
+        ion-input {
+            background:#efefef; 
+            outline: none !important; 
+            -webkit-appearance: none; 
+            box-shadow: none !important; 
+            border: none !important;
+            color: #000000;
+            font-size: 20px !important;
+        }
+    
+        .text-input::-moz-placeholder {
+            color: black;
+            font-size:15px;
+            
+          }
+          
+          .text-input:-ms-input-placeholder {
+            color: white;
+            font-size:15px;
+            
+          }
+          
+          .text-input::-webkit-input-placeholder {
+            color: white;
+            font-size:15px;
+    
+          }
+    
+        hr {
+            border: 0;
+            height: 0;
+            border-top: 1px solid rgba(255, 255, 255, 1);
+            //border-bottom: 1px solid rgba(255, 255, 255, 1);
+        }
 
 }

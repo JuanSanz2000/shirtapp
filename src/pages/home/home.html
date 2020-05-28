@@ -1,17 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Ofertas</ion-title>
-  </ion-navbar>
+  	<ion-navbar>
+		<button ion-button menuToggle icon-only>
+			<ion-icon name='menu'></ion-icon>
+		</button>
+	    <ion-title>Ofertas</ion-title>
+  	</ion-navbar>
 </ion-header>
 
-<ion-content>
-	<ion-list >
-		<button ion-item (click)="dameDetalles(articulo.id)" *ngFor="let articulo of Articulos">
-			<ion-avatar item-start>
-				<img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" >
-			</ion-avatar>
-			<h2>{{articulo.nombre}}</h2>
-			<h3>Precio {{articulo.precio}}€</h3>
-		</button>
-	</ion-list>
-</ion-content>
+	<ion-content>
+		<ion-list >
+			<button ion-item (click)="dameDetalles(articulo.id)" *ngFor="let articulo of Articulos">
+				<ion-avatar item-start>
+					<img [src]="'./assets/camisetas/' + articulo.id + '.jpg'" >
+				</ion-avatar>
+				<h2>{{articulo.nombre}}</h2>
+				<h3>Precio {{articulo.precio}}€</h3>
+			</button>
+		</ion-list>
+	</ion-content>

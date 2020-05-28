@@ -22,7 +22,7 @@ Articulos :any = [];
 constructor(
 	public api:API,
 	public navCtrl: NavController) {
-	this.dameOfertas();
+		this.dameOfertas();
 }
 
 public dameOfertas() {
